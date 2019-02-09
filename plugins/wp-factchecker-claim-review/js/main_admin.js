@@ -60,6 +60,7 @@ function resetNewItemForm(){
   $('[name="claim-quote"]').val('');
   $('[name="claim-summary"]').val('');
   $('[name="author-name"]').val('');
+  $('[name="author-url"]').val('');
   $('[name="author-type"]:checked').prop('checked', false);
   $('[name="publication-name"]').val('');
   $('[name="publication-url"]').val('');
@@ -76,6 +77,7 @@ function saveNewItem(){
   newItem['claim-quote'] = $('[name="claim-quote"]').val();
   newItem['claim-summary'] = $('[name="claim-summary"]').val();
   newItem['author-name'] = $('[name="author-name"]').val();
+  newItem['author-url'] = $('[name="author-url"]').val();
   newItem['author-type'] = $('[name="author-type"]:checked').val();
   newItem['publication-name'] = $('[name="publication-name"]').val();
   newItem['publication-url'] = $('[name="publication-url"]').val();

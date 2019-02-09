@@ -563,10 +563,9 @@ class Factchecker_Claim_Review_Admin{
         
         
         public function save_new_claim_review($request){
+            // disabling error reporting and notices here because messages in filters in some plugins kill the json response and break things
+            $err_level = error_reporting(0);
             $data = $request->get_json_params();
-            // return $response = new \WP_REST_Response($data);
-            
-            
             if(!wp_verify_nonce( $data['new_claim_review_nonce'], 'wp_rest' )){
                 return new \WP_Error( 'invalid_request', 'Not verifiedddd', array( 'status' => 403 ) );
             }
@@ -588,6 +587,7 @@ class Factchecker_Claim_Review_Admin{
             } catch (Exception $e) {
                 $response = $e;
             }
+            error_reporting($err_level);
             return $response;
         }
         
